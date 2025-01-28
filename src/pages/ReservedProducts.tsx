@@ -81,13 +81,11 @@ const ReservedProducts = () => {
           },
         }
       );
-      window.location.reload();
-      const updatedProduct = response.data.product;
+
       setProducts((prevProducts) =>
-        prevProducts.map((product) =>
-          product._id === productId ? updatedProduct : product
-        )
-      );
+        prevProducts.filter((product) =>
+          product._id !== productId
+        ));
 
       alertToast("Reserva cancelada com sucesso.", '', "success");
     } catch {
